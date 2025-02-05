@@ -1,4 +1,4 @@
-# robots-txt-intellij-plugin
+# RobotsTXT
 
 ![Build](https://github.com/xepozz/robots-txt-intellij-plugin/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
@@ -17,35 +17,34 @@
 - [ ] Click the <kbd>Watch</kbd> button on the top of the [IntelliJ Platform Plugin Template][template] to be notified about releases containing new features and fixes.
 
 <!-- Plugin description -->
-This Fancy IntelliJ Platform Plugin is going to be your implementation of the brilliant ideas that you have.
 
-This specific section is a source for the [plugin.xml](/src/main/resources/META-INF/plugin.xml) file which will be extracted by the [Gradle](/build.gradle.kts) during the build process.
+## Robots.txt Support
 
-To keep everything working, do not remove `<!-- ... -->` sections. 
+[Robots.txt](https://en.wikipedia.org/wiki/Robots.txt) syntax support.
+
+Advantages:
+
+- Syntax highlight
+- Directives completion (soon)
+- Wrong paths analyzer (soon)
+
+## Donation
+
+Open-source tools can greatly improve workflows, helping developers and businesses save time and increase revenue.
+Many successful projects have been built on these tools, benefiting a wide community.
+However, maintaining and enhancing these resources requires continuous effort and investment.
+
+Support from the community helps keep these projects alive and ensures they remain useful for everyone.
+Donations play a key role in sustaining and improving these open-source initiatives.
+
+Chose the best option for you to say thank you:
+
+[<img height="28" src="https://github.githubassets.com/assets/patreon-96b15b9db4b9.svg"> Patreon](https://patreon.com/xepozz)
+|
+[<img height="28" src="https://github.githubassets.com/assets/buy_me_a_coffee-63ed78263f6e.svg"> Buy me a coffee](https://buymeacoffee.com/xepozz)
+|
+[<img height="28" src="https://boosty.to/favicon.ico"> Boosty](https://boosty.to/xepozz)
+
 <!-- Plugin description end -->
 
-## Installation
 
-- Using the IDE built-in plugin system:
-  
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "robots-txt-intellij-plugin"</kbd> >
-  <kbd>Install</kbd>
-  
-- Using JetBrains Marketplace:
-
-  Go to [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID) and install it by clicking the <kbd>Install to ...</kbd> button in case your IDE is running.
-
-  You can also download the [latest release](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID/versions) from JetBrains Marketplace and install it manually using
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
-
-- Manually:
-
-  Download the [latest release](https://github.com/xepozz/robots-txt-intellij-plugin/releases/latest) and install it manually using
-  <kbd>Settings/Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
-
-
----
-Plugin based on the [IntelliJ Platform Plugin Template][template].
-
-[template]: https://github.com/JetBrains/intellij-platform-plugin-template
-[docs:plugin-description]: https://plugins.jetbrains.com/docs/intellij/plugin-user-experience.html#plugin-description-and-presentation

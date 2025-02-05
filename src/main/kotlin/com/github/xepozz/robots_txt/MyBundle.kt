@@ -1,4 +1,4 @@
-package com.github.xepozz.robotstxtintellijplugin
+package com.github.xepozz.robots_txt
 
 import com.intellij.DynamicBundle
 import org.jetbrains.annotations.NonNls

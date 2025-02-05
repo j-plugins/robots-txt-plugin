@@ -1,0 +1,20 @@
+{
+  parserClass = "com.github.xepozz.robots_txt.language.parser.RobotsTxtParser"
+
+  extends = "com.intellij.extapi.psi.ASTWrapperPsiElement"
+
+  psiClassPrefix = "RobotsTxt"
+  psiImplClassSuffix="Impl"
+  psiPackage="com.github.xepozz.robots_txt.language.psi"
+  psiImplPackage="com.github.xepozz.robots_txt.language.psi.impl"
+
+  elementTypeHolderClass="com.github.xepozz.robots_txt.language.psi.RobotsTxtTypes"
+  elementTypeClass = "com.github.xepozz.robots_txt.language.psi.RobotsTxtElementType"
+  tokenTypeClass = "com.github.xepozz.robots_txt.language.psi.RobotsTxtTokenType"
+}
+
+file ::= entry*
+
+entry ::= rule | COMMENT
+
+rule ::= DIRECTIVE DELIMITER VALUE
