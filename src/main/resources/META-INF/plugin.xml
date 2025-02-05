@@ -2,7 +2,7 @@
 <idea-plugin>
     <id>com.github.xepozz.robots_txt</id>
     <name>RobotsTXT</name>
-    <vendor>xepozz</vendor>
+    <vendor email="xepozz@list.ru" url="https://github.com/xepozz">Dmitrii Derepko (@xepozz)</vendor>
 
     <depends>com.intellij.modules.platform</depends>
 
