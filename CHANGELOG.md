@@ -2,6 +2,10 @@
 
 # Robots.txt Changelog
 
+## [2025.0.4] - 2025-02-11 ---
+
+- feat: rules inspections
+
 ## [2025.0.3] - 2025-02-11
 
 - feat: keywords completion
