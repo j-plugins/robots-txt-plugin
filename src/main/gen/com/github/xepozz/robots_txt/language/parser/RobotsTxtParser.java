@@ -35,28 +35,26 @@ public class RobotsTxtParser implements PsiParser, LightPsiParser {
     return file(b, l + 1);
   }
 
-    /* ********************************************************** */
-    // TEXT
-    public static boolean directive(PsiBuilder b, int l) {
-        if (!recursion_guard_(b, l, "directive")) return false;
-        if (!nextTokenIs(b, TEXT)) return false;
-        boolean r;
-        Marker m = enter_section_(b);
-        r = consumeToken(b, TEXT);
-        exit_section_(b, m, DIRECTIVE, r);
-        return r;
-    }
+  /* ********************************************************** */
+  // TEXT
+  public static boolean directive(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "directive")) return false;
+    if (!nextTokenIs(b, TEXT)) return false;
+    boolean r;
+    Marker m = enter_section_(b);
+    r = consumeToken(b, TEXT);
+    exit_section_(b, m, DIRECTIVE, r);
+    return r;
+  }
 
   /* ********************************************************** */
-  // rule | COMMENT
-  public static boolean entry(PsiBuilder b, int l) {
+  // rule | COMMENT | EOL
+  static boolean entry(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "entry")) return false;
-      if (!nextTokenIs(b, "<entry>", COMMENT, TEXT)) return false;
     boolean r;
-    Marker m = enter_section_(b, l, _NONE_, ENTRY, "<entry>");
     r = rule(b, l + 1);
     if (!r) r = consumeToken(b, COMMENT);
-    exit_section_(b, l, m, r, false, null);
+    if (!r) r = consumeToken(b, EOL);
     return r;
   }
 
@@ -76,26 +74,26 @@ public class RobotsTxtParser implements PsiParser, LightPsiParser {
   // directive DELIMITER value
   public static boolean rule(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rule")) return false;
-      if (!nextTokenIs(b, TEXT)) return false;
-      boolean r, p;
-      Marker m = enter_section_(b, l, _NONE_, RULE, null);
-      r = directive(b, l + 1);
-      p = r; // pin = 1
-      r = r && report_error_(b, consumeToken(b, DELIMITER));
-      r = p && value(b, l + 1) && r;
-      exit_section_(b, l, m, r, p, null);
-      return r || p;
+    if (!nextTokenIs(b, TEXT)) return false;
+    boolean r, p;
+    Marker m = enter_section_(b, l, _NONE_, RULE, null);
+    r = directive(b, l + 1);
+    p = r; // pin = 1
+    r = r && report_error_(b, consumeToken(b, DELIMITER));
+    r = p && value(b, l + 1) && r;
+    exit_section_(b, l, m, r, p, null);
+    return r || p;
   }
 
-    /* ********************************************************** */
-    // TEXT
-    public static boolean value(PsiBuilder b, int l) {
-        if (!recursion_guard_(b, l, "value")) return false;
-        if (!nextTokenIs(b, TEXT)) return false;
+  /* ********************************************************** */
+  // TEXT
+  public static boolean value(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "value")) return false;
+    if (!nextTokenIs(b, TEXT)) return false;
     boolean r;
     Marker m = enter_section_(b);
-        r = consumeToken(b, TEXT);
-        exit_section_(b, m, VALUE, r);
+    r = consumeToken(b, TEXT);
+    exit_section_(b, m, VALUE, r);
     return r;
   }
 

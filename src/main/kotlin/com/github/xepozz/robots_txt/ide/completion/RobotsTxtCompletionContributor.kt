@@ -15,7 +15,6 @@ import com.intellij.util.ProcessingContext
 class RobotsTxtCompletionContributor : CompletionContributor(), DumbAware {
     val keywords = listOf(
         "Sitemap",
-        "Crawl-delay",
         "Allow",
         "Disallow",
         "User-agent",
@@ -37,6 +36,14 @@ class RobotsTxtCompletionContributor : CompletionContributor(), DumbAware {
                         result.addElement(
                             LookupElementBuilder.create(keyword)
                                 .withIcon(RobotsTxtIcons.FILE)
+                                .withInsertHandler { context, _ ->
+                                    val document = context.document
+                                    val insertionOffset = context.selectionEndOffset
+
+                                    // Insert ": /" after the selected keyword
+                                    document.insertString(insertionOffset, ": /")
+                                    context.editor.caretModel.moveToOffset(insertionOffset + 3)
+                                }
                         )
                     }
                 }
@@ -44,5 +51,3 @@ class RobotsTxtCompletionContributor : CompletionContributor(), DumbAware {
         )
     }
 }
-
-//PlatformPatterns.psiElement().withParent(PlatformPatterns.psiElement(RobotsTxtDirective::class.java)).accepts(element)

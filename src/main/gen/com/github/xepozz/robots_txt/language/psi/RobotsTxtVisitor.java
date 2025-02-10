@@ -7,11 +7,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class RobotsTxtVisitor extends PsiElementVisitor {
 
-    public void visitDirective(@NotNull RobotsTxtDirective o) {
-        visitPsiElement(o);
-    }
-
-  public void visitEntry(@NotNull RobotsTxtEntry o) {
+  public void visitDirective(@NotNull RobotsTxtDirective o) {
     visitPsiElement(o);
   }
 
@@ -19,9 +15,9 @@ public class RobotsTxtVisitor extends PsiElementVisitor {
     visitPsiElement(o);
   }
 
-    public void visitValue(@NotNull RobotsTxtValue o) {
-        visitPsiElement(o);
-    }
+  public void visitValue(@NotNull RobotsTxtValue o) {
+    visitPsiElement(o);
+  }
 
   public void visitPsiElement(@NotNull PsiElement o) {
     visitElement(o);

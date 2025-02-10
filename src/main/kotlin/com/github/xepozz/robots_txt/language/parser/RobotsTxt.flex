@@ -31,4 +31,4 @@ WHITESPACE=[ \t]+
 }
 
 {WHITESPACE}      { return TokenType.WHITE_SPACE; }
-{NEWLINE}         { yybegin(YYINITIAL); return TokenType.WHITE_SPACE; }
+{NEWLINE}         { yybegin(YYINITIAL); return RobotsTxtTypes.EOL; }

@@ -7,10 +7,10 @@ import org.jetbrains.annotations.Nullable;
 
 public interface RobotsTxtRule extends PsiElement {
 
-    @NotNull
-    RobotsTxtDirective getDirective();
+  @NotNull
+  RobotsTxtDirective getDirective();
 
-    @Nullable
-    RobotsTxtValue getValue();
+  @Nullable
+  RobotsTxtValue getValue();
 
 }

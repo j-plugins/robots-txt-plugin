@@ -722,8 +722,9 @@ class RobotsTxtLexer implements FlexLexer {
           // fall through
           case 6:
             break;
-          case 2:
-            { yybegin(YYINITIAL); return TokenType.WHITE_SPACE;
+          case 2: {
+            yybegin(YYINITIAL);
+            return RobotsTxtTypes.EOL;
             }
           // fall through
           case 7:

@@ -10,18 +10,18 @@ import org.jetbrains.annotations.NotNull;
 
 public class RobotsTxtDirectiveImpl extends ASTWrapperPsiElement implements RobotsTxtDirective {
 
-    public RobotsTxtDirectiveImpl(@NotNull ASTNode node) {
-        super(node);
-    }
+  public RobotsTxtDirectiveImpl(@NotNull ASTNode node) {
+    super(node);
+  }
 
-    public void accept(@NotNull RobotsTxtVisitor visitor) {
-        visitor.visitDirective(this);
-    }
+  public void accept(@NotNull RobotsTxtVisitor visitor) {
+    visitor.visitDirective(this);
+  }
 
-    @Override
-    public void accept(@NotNull PsiElementVisitor visitor) {
-        if (visitor instanceof RobotsTxtVisitor) accept((RobotsTxtVisitor) visitor);
-        else super.accept(visitor);
-    }
+  @Override
+  public void accept(@NotNull PsiElementVisitor visitor) {
+    if (visitor instanceof RobotsTxtVisitor) accept((RobotsTxtVisitor) visitor);
+    else super.accept(visitor);
+  }
 
 }

@@ -15,7 +15,7 @@
 
 file ::= entry*
 
-entry ::= rule | COMMENT
+private entry ::= rule | COMMENT | EOL
 
 rule ::= directive DELIMITER value
 {

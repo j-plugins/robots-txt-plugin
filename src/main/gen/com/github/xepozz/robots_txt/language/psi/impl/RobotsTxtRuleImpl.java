@@ -27,16 +27,16 @@ public class RobotsTxtRuleImpl extends ASTWrapperPsiElement implements RobotsTxt
     else super.accept(visitor);
   }
 
-    @Override
-    @NotNull
-    public RobotsTxtDirective getDirective() {
-        return findNotNullChildByClass(RobotsTxtDirective.class);
-    }
+  @Override
+  @NotNull
+  public RobotsTxtDirective getDirective() {
+    return findNotNullChildByClass(RobotsTxtDirective.class);
+  }
 
-    @Override
-    @Nullable
-    public RobotsTxtValue getValue() {
-        return findChildByClass(RobotsTxtValue.class);
-    }
+  @Override
+  @Nullable
+  public RobotsTxtValue getValue() {
+    return findChildByClass(RobotsTxtValue.class);
+  }
 
 }

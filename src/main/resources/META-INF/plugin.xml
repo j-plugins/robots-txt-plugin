@@ -32,5 +32,11 @@
         <annotator
                 language="RobotsTxt"
                 implementationClass="com.github.xepozz.robots_txt.language.RobotsTxtAnnotator"/>
+
+        <localInspection
+                shortName="RobotsTxtInspection" displayName="Robots.txt inspections" groupName="Robots.txt inspection"
+                language="RobotsTxt" enabledByDefault="true"
+                implementationClass="com.github.xepozz.robots_txt.ide.inspection.RobotsTxtInspection"/>
+
     </extensions>
 </idea-plugin>
