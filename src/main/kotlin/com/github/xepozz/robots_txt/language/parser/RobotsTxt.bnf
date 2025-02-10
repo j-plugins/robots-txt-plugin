@@ -17,4 +17,10 @@ file ::= entry*
 
 entry ::= rule | COMMENT
 
-rule ::= DIRECTIVE DELIMITER VALUE
+rule ::= directive DELIMITER value
+{
+    pin=1
+}
+
+directive ::= TEXT
+value ::= TEXT

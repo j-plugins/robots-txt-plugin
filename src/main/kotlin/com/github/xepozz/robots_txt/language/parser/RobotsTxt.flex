@@ -23,11 +23,11 @@ WHITESPACE=[ \t]+
 
 <YYINITIAL> {
     #[^\n]*       { return RobotsTxtTypes.COMMENT; }
-    ([\w-]+)      { return RobotsTxtTypes.DIRECTIVE; }
+    ([\w-]+)      { return RobotsTxtTypes.TEXT; }
     ":"           { yybegin(VALUE); return RobotsTxtTypes.DELIMITER; }
 }
 <VALUE> {
-    [^\s][^\n]*   { return RobotsTxtTypes.VALUE; }
+    [^\s][^\n]*   { return RobotsTxtTypes.TEXT; }
 }
 
 {WHITESPACE}      { return TokenType.WHITE_SPACE; }

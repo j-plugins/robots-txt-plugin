@@ -14,8 +14,6 @@ class RobotsTxtSyntaxHighlighter : SyntaxHighlighterBase() {
 
     override fun getTokenHighlights(tokenType: IElementType) = when (tokenType) {
         RobotsTxtTypes.COMMENT -> COMMENT_KEYS
-        RobotsTxtTypes.DIRECTIVE -> DIRECTIVE_KEYS
-        RobotsTxtTypes.VALUE -> VALUE_KEYS
         TokenType.BAD_CHARACTER -> BAD_CHAR_KEYS
         else -> EMPTY_KEYS
     }
@@ -27,12 +25,6 @@ class RobotsTxtSyntaxHighlighter : SyntaxHighlighterBase() {
 
         private val COMMENT_KEYS = arrayOf(
             DefaultLanguageHighlighterColors.DOC_COMMENT
-        )
-        private val DIRECTIVE_KEYS = arrayOf(
-            DefaultLanguageHighlighterColors.IDENTIFIER
-        )
-        private val VALUE_KEYS = arrayOf(
-            DefaultLanguageHighlighterColors.STRING
         )
         private val EMPTY_KEYS = emptyArray<TextAttributesKey>()
     }

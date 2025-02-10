@@ -1,15 +1,15 @@
 // This is a generated file. Not intended for manual editing.
 package com.github.xepozz.robots_txt.language.psi.impl;
 
-import java.util.List;
-import org.jetbrains.annotations.*;
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElement;
-import com.intellij.psi.PsiElementVisitor;
-import com.intellij.psi.util.PsiTreeUtil;
-import static com.github.xepozz.robots_txt.language.psi.RobotsTxtTypes.*;
+import com.github.xepozz.robots_txt.language.psi.RobotsTxtDirective;
+import com.github.xepozz.robots_txt.language.psi.RobotsTxtRule;
+import com.github.xepozz.robots_txt.language.psi.RobotsTxtValue;
+import com.github.xepozz.robots_txt.language.psi.RobotsTxtVisitor;
 import com.intellij.extapi.psi.ASTWrapperPsiElement;
-import com.github.xepozz.robots_txt.language.psi.*;
+import com.intellij.lang.ASTNode;
+import com.intellij.psi.PsiElementVisitor;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class RobotsTxtRuleImpl extends ASTWrapperPsiElement implements RobotsTxtRule {
 
@@ -26,5 +26,17 @@ public class RobotsTxtRuleImpl extends ASTWrapperPsiElement implements RobotsTxt
     if (visitor instanceof RobotsTxtVisitor) accept((RobotsTxtVisitor)visitor);
     else super.accept(visitor);
   }
+
+    @Override
+    @NotNull
+    public RobotsTxtDirective getDirective() {
+        return findNotNullChildByClass(RobotsTxtDirective.class);
+    }
+
+    @Override
+    @Nullable
+    public RobotsTxtValue getValue() {
+        return findChildByClass(RobotsTxtValue.class);
+    }
 
 }

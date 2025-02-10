@@ -1,15 +1,15 @@
 // This is a generated file. Not intended for manual editing.
 package com.github.xepozz.robots_txt.language.parser;
 
+import com.intellij.lang.ASTNode;
+import com.intellij.lang.LightPsiParser;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilder.Marker;
+import com.intellij.lang.PsiParser;
+import com.intellij.psi.tree.IElementType;
+
 import static com.github.xepozz.robots_txt.language.psi.RobotsTxtTypes.*;
 import static com.intellij.lang.parser.GeneratedParserUtilBase.*;
-import com.intellij.psi.tree.IElementType;
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.tree.TokenSet;
-import com.intellij.lang.PsiParser;
-import com.intellij.lang.LightPsiParser;
 
 @SuppressWarnings({"SimplifiableIfStatement", "UnusedAssignment"})
 public class RobotsTxtParser implements PsiParser, LightPsiParser {
@@ -35,11 +35,23 @@ public class RobotsTxtParser implements PsiParser, LightPsiParser {
     return file(b, l + 1);
   }
 
+    /* ********************************************************** */
+    // TEXT
+    public static boolean directive(PsiBuilder b, int l) {
+        if (!recursion_guard_(b, l, "directive")) return false;
+        if (!nextTokenIs(b, TEXT)) return false;
+        boolean r;
+        Marker m = enter_section_(b);
+        r = consumeToken(b, TEXT);
+        exit_section_(b, m, DIRECTIVE, r);
+        return r;
+    }
+
   /* ********************************************************** */
   // rule | COMMENT
   public static boolean entry(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "entry")) return false;
-    if (!nextTokenIs(b, "<entry>", COMMENT, DIRECTIVE)) return false;
+      if (!nextTokenIs(b, "<entry>", COMMENT, TEXT)) return false;
     boolean r;
     Marker m = enter_section_(b, l, _NONE_, ENTRY, "<entry>");
     r = rule(b, l + 1);
@@ -61,14 +73,29 @@ public class RobotsTxtParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // DIRECTIVE DELIMITER VALUE
+  // directive DELIMITER value
   public static boolean rule(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rule")) return false;
-    if (!nextTokenIs(b, DIRECTIVE)) return false;
+      if (!nextTokenIs(b, TEXT)) return false;
+      boolean r, p;
+      Marker m = enter_section_(b, l, _NONE_, RULE, null);
+      r = directive(b, l + 1);
+      p = r; // pin = 1
+      r = r && report_error_(b, consumeToken(b, DELIMITER));
+      r = p && value(b, l + 1) && r;
+      exit_section_(b, l, m, r, p, null);
+      return r || p;
+  }
+
+    /* ********************************************************** */
+    // TEXT
+    public static boolean value(PsiBuilder b, int l) {
+        if (!recursion_guard_(b, l, "value")) return false;
+        if (!nextTokenIs(b, TEXT)) return false;
     boolean r;
     Marker m = enter_section_(b);
-    r = consumeTokens(b, 0, DIRECTIVE, DELIMITER, VALUE);
-    exit_section_(b, m, RULE, r);
+        r = consumeToken(b, TEXT);
+        exit_section_(b, m, VALUE, r);
     return r;
   }
 

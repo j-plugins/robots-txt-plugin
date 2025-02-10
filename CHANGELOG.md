@@ -2,6 +2,12 @@
 
 # Robots.txt Changelog
 
+## [2025.0.3] - 2025-02-11
+
+- feat: keywords completion
+- fix: grammar parsing
+- feat: implement commenter
+
 ## [2025.0.2] - 2025-02-10
 
 - fix filename mismatch

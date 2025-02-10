@@ -3,6 +3,7 @@ package com.github.xepozz.robots_txt.language
 import com.github.xepozz.robots_txt.language.parser.RobotsTxtLexerAdapter
 import com.github.xepozz.robots_txt.language.parser.RobotsTxtParser
 import com.github.xepozz.robots_txt.language.psi.RobotsTxtTokenSets
+import com.github.xepozz.robots_txt.language.psi.RobotsTxtTypes
 import com.intellij.lang.ASTNode
 import com.intellij.lang.ParserDefinition
 import com.intellij.psi.FileViewProvider
@@ -22,7 +23,7 @@ class RobotsTxtParserDefinition : ParserDefinition {
 
     override fun getStringLiteralElements() = TokenSet.EMPTY
 
-    override fun createElement(node: ASTNode) = RobotsTxtPsiElement(node)
+    override fun createElement(node: ASTNode) = RobotsTxtTypes.Factory.createElement(node)
 
     override fun createFile(viewProvider: FileViewProvider) = RobotsTxtFile(viewProvider)
 

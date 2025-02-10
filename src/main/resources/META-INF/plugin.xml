@@ -22,5 +22,15 @@
         <lang.syntaxHighlighterFactory
                 language="RobotsTxt"
                 implementationClass="com.github.xepozz.robots_txt.language.RobotsTxtSyntaxHighlighterFactory"/>
+
+        <lang.commenter
+                language="RobotsTxt"
+                implementationClass="com.github.xepozz.robots_txt.ide.RobotsTxtCommenter"/>
+        <completion.contributor
+                language="RobotsTxt"
+                implementationClass="com.github.xepozz.robots_txt.ide.completion.RobotsTxtCompletionContributor"/>
+        <annotator
+                language="RobotsTxt"
+                implementationClass="com.github.xepozz.robots_txt.language.RobotsTxtAnnotator"/>
     </extensions>
 </idea-plugin>
