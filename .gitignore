@@ -3,4 +3,6 @@
 .intellijPlatform
 .qodana
 .kotlin
+.env
+.cert
 build
