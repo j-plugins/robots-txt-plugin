@@ -2,6 +2,10 @@
 
 # Robots.txt Changelog
 
+## [2025.0.5] - 2025-02-17
+
+- feat: rules inspections
+
 ## [2025.0.4] - 2025-02-12
 
 - feat: rules inspections
