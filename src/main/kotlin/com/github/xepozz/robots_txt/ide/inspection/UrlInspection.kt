@@ -43,10 +43,10 @@ class RobotsTxtInspection : LocalInspectionTool() {
                 var hasAllowance = false
 
                 for (element in children) {
-                    println("element: $element / ${element.elementType}")
+//                    println("element: $element / ${element.elementType}")
 
                     if (!blockStarted && element.elementType != RobotsTxtTypes.EOL) {
-                        println("block started")
+//                        println("block started")
                         blockStarted = true
                     }
 

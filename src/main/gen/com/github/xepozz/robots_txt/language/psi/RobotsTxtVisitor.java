@@ -3,6 +3,7 @@ package com.github.xepozz.robots_txt.language.psi;
 
 import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.PsiLiteralValue;
 import org.jetbrains.annotations.NotNull;
 
 public class RobotsTxtVisitor extends PsiElementVisitor {
@@ -16,7 +17,11 @@ public class RobotsTxtVisitor extends PsiElementVisitor {
   }
 
   public void visitValue(@NotNull RobotsTxtValue o) {
-    visitPsiElement(o);
+    visitPsiLiteralValue(o);
+  }
+
+  public void visitPsiLiteralValue(@NotNull PsiLiteralValue o) {
+    visitElement(o);
   }
 
   public void visitPsiElement(@NotNull PsiElement o) {

@@ -11,6 +11,8 @@
   elementTypeHolderClass="com.github.xepozz.robots_txt.language.psi.RobotsTxtTypes"
   elementTypeClass = "com.github.xepozz.robots_txt.language.psi.RobotsTxtElementType"
   tokenTypeClass = "com.github.xepozz.robots_txt.language.psi.RobotsTxtTokenType"
+
+  psiImplUtilClass="com.github.xepozz.robots_txt.language.psi.impl.RobotsTxtImplUtil"
 }
 
 file ::= entry*
@@ -24,3 +26,7 @@ rule ::= directive DELIMITER value
 
 directive ::= TEXT
 value ::= TEXT
+{
+    implements=["com.intellij.psi.PsiLiteralValue"]
+    methods=[getValue getReferences]
+}

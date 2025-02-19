@@ -13,11 +13,11 @@ import com.intellij.patterns.PlatformPatterns
 import com.intellij.util.ProcessingContext
 
 class RobotsTxtCompletionContributor : CompletionContributor(), DumbAware {
-    val keywords = listOf(
-        "Sitemap",
-        "Allow",
-        "Disallow",
-        "User-agent",
+    val keywords = listOf<Pair<String, String>>(
+        "Sitemap" to "https://",
+        "Allow" to "/",
+        "Disallow" to "/",
+        "User-agent" to "",
     )
 
     init {
@@ -34,15 +34,23 @@ class RobotsTxtCompletionContributor : CompletionContributor(), DumbAware {
                     result.caseInsensitive()
                     keywords.forEach { keyword ->
                         result.addElement(
-                            LookupElementBuilder.create(keyword)
+                            LookupElementBuilder.create(keyword.first)
                                 .withIcon(RobotsTxtIcons.FILE)
                                 .withInsertHandler { context, _ ->
                                     val document = context.document
                                     val insertionOffset = context.selectionEndOffset
 
                                     // Insert ": /" after the selected keyword
-                                    document.insertString(insertionOffset, ": /")
-                                    context.editor.caretModel.moveToOffset(insertionOffset + 3)
+                                    val postfix = ": " + keyword.second
+                                    // todo: check if postfix already exist
+                                    val realPostfix = document.charsSequence.subSequence(
+                                        insertionOffset,
+                                        insertionOffset + postfix.length
+                                    )
+                                    if (realPostfix != postfix) {
+                                        document.insertString(insertionOffset, postfix)
+                                    }
+                                    context.editor.caretModel.moveToOffset(insertionOffset + postfix.length)
                                 }
                         )
                     }
