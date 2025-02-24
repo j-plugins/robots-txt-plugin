@@ -4,6 +4,11 @@
 
 ## [Unreleased]
 
+## [2025.0.7] - 2025-02-24
+
+- feat: add url references
+- fix: completion postfixes
+
 ## [2025.0.6] - 2025-02-20
 
 - feat: add url references
