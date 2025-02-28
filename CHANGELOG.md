@@ -4,6 +4,10 @@
 
 ## [Unreleased]
 
+## [2025.0.8] - 2025-02-28
+
+- feat: allow *robots.txt pattern
+
 ## [2025.0.7] - 2025-02-24
 
 - feat: add url references
