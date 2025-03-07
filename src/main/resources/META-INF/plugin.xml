@@ -12,7 +12,6 @@
         <fileType
                 name="RobotsTxt File"
                 implementationClass="com.github.xepozz.robots_txt.language.RobotsTxtFileType"
-                fieldName="INSTANCE"
                 language="RobotsTxt"
                 patterns="*robots.txt"
                 fileNamesCaseInsensitive="robots.txt"
