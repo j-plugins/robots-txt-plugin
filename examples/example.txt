@@ -1,0 +1,12 @@
+User-agent: Googlebot
+Allow: /public/
+Disallow: /private/
+Sitemap: https://www.example.com/google-sitemap.xml
+
+User-agent: Bingbot
+Disallow: /experimental/
+Allow: /docs/
+Sitemap: https://www.example.com/bing-sitemap.xml
+
+User-agent: *
+Disallow: /temp/

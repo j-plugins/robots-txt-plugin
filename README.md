@@ -47,4 +47,10 @@ Chose the best option for you to say thank you:
 
 <!-- Plugin description end -->
 
+## Screenshots
+
+#### Basic usage
+
+![basic.png](docs/screenshots/basic.png)
+
 
