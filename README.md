@@ -1,6 +1,6 @@
 # Robots.txt
 
-![Build](https://github.com/xepozz/robots-txt-intellij-plugin/workflows/Build/badge.svg)
+![Build](https://github.com/j-plugins/robots-txt-plugin/workflows/Build/badge.svg)
 [![Version](https://img.shields.io/jetbrains/plugin/v/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
 
