@@ -31,7 +31,7 @@ class RobotsTxtCompletionContributor : CompletionContributor(), DumbAware {
                     context: ProcessingContext,
                     result: CompletionResultSet
                 ) {
-                    result.caseInsensitive()
+                    val result = result.caseInsensitive()
                     keywords.forEach { keyword ->
                         result.addElement(
                             LookupElementBuilder.create(keyword.first)
