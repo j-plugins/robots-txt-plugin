@@ -20,7 +20,7 @@ public class RobotsTxtDirectiveImpl extends ASTWrapperPsiElement implements Robo
 
   @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
-    if (visitor instanceof RobotsTxtVisitor) accept((RobotsTxtVisitor) visitor);
+      if (visitor instanceof RobotsTxtVisitor) accept((RobotsTxtVisitor) visitor);
     else super.accept(visitor);
   }
 

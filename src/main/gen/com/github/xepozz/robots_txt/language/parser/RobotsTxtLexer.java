@@ -720,33 +720,33 @@ class RobotsTxtLexer implements FlexLexer {
             { return TokenType.WHITE_SPACE;
             }
           // fall through
-          case 6:
-            break;
-          case 2: {
-            yybegin(YYINITIAL);
-            return RobotsTxtTypes.EOL;
+            case 6:
+                break;
+            case 2: {
+                yybegin(YYINITIAL);
+                return RobotsTxtTypes.EOL;
             }
           // fall through
-          case 7:
-            break;
+            case 7:
+                break;
           case 3:
             { return RobotsTxtTypes.COMMENT;
             }
           // fall through
-          case 8:
-            break;
-          case 4: {
-            return RobotsTxtTypes.TEXT;
+            case 8:
+                break;
+            case 4: {
+                return RobotsTxtTypes.TEXT;
             }
           // fall through
-          case 9:
-            break;
+            case 9:
+                break;
           case 5:
             { yybegin(VALUE); return RobotsTxtTypes.DELIMITER;
             }
           // fall through
-          case 10:
-            break;
+            case 10:
+                break;
           default:
             zzScanError(ZZ_NO_MATCH);
           }
