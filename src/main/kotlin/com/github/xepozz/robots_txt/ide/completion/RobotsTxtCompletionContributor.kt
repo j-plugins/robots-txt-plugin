@@ -41,16 +41,17 @@ class RobotsTxtCompletionContributor : CompletionContributor(), DumbAware {
                                     val insertionOffset = context.selectionEndOffset
 
                                     // Insert ": /" after the selected keyword
-                                    val postfix = ": " + keyword.second
+                                    val delimiter = ": "
+                                    val postfix = delimiter + keyword.second
+
                                     // todo: check if postfix already exist
-                                    val realPostfix = document.charsSequence.subSequence(
-                                        insertionOffset,
-                                        insertionOffset + postfix.length
-                                    )
-                                    if (realPostfix != postfix) {
+                                    val realPostfix = document.charsSequence.substring(insertionOffset)
+                                    if (!realPostfix.startsWith(delimiter)) {
                                         document.insertString(insertionOffset, postfix)
+                                        context.editor.caretModel.moveToOffset(insertionOffset + postfix.length)
+                                    } else {
+                                        context.editor.caretModel.moveToOffset(insertionOffset + delimiter.length)
                                     }
-                                    context.editor.caretModel.moveToOffset(insertionOffset + postfix.length)
                                 }
                         )
                     }
