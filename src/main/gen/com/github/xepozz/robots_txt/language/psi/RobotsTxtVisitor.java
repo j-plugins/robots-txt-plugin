@@ -1,10 +1,10 @@
 // This is a generated file. Not intended for manual editing.
 package com.github.xepozz.robots_txt.language.psi;
 
-import com.intellij.psi.PsiElement;
+import org.jetbrains.annotations.*;
 import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiLiteralValue;
-import org.jetbrains.annotations.NotNull;
 
 public class RobotsTxtVisitor extends PsiElementVisitor {
 

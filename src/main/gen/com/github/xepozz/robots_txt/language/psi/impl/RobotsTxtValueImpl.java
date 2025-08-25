@@ -1,13 +1,16 @@
 // This is a generated file. Not intended for manual editing.
 package com.github.xepozz.robots_txt.language.psi.impl;
 
-import com.github.xepozz.robots_txt.language.psi.RobotsTxtValue;
-import com.github.xepozz.robots_txt.language.psi.RobotsTxtVisitor;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
+import java.util.List;
+import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
+import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
+import com.intellij.psi.util.PsiTreeUtil;
+import static com.github.xepozz.robots_txt.language.psi.RobotsTxtTypes.*;
+import com.intellij.extapi.psi.ASTWrapperPsiElement;
+import com.github.xepozz.robots_txt.language.psi.*;
 import com.intellij.psi.PsiReference;
-import org.jetbrains.annotations.NotNull;
 
 public class RobotsTxtValueImpl extends ASTWrapperPsiElement implements RobotsTxtValue {
 
@@ -21,7 +24,7 @@ public class RobotsTxtValueImpl extends ASTWrapperPsiElement implements RobotsTx
 
   @Override
   public void accept(@NotNull PsiElementVisitor visitor) {
-      if (visitor instanceof RobotsTxtVisitor) accept((RobotsTxtVisitor) visitor);
+    if (visitor instanceof RobotsTxtVisitor) accept((RobotsTxtVisitor)visitor);
     else super.accept(visitor);
   }
 

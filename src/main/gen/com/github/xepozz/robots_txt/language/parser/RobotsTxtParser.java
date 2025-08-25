@@ -1,15 +1,15 @@
 // This is a generated file. Not intended for manual editing.
 package com.github.xepozz.robots_txt.language.parser;
 
-import com.intellij.lang.ASTNode;
-import com.intellij.lang.LightPsiParser;
 import com.intellij.lang.PsiBuilder;
 import com.intellij.lang.PsiBuilder.Marker;
-import com.intellij.lang.PsiParser;
-import com.intellij.psi.tree.IElementType;
-
 import static com.github.xepozz.robots_txt.language.psi.RobotsTxtTypes.*;
 import static com.intellij.lang.parser.GeneratedParserUtilBase.*;
+import com.intellij.psi.tree.IElementType;
+import com.intellij.lang.ASTNode;
+import com.intellij.psi.tree.TokenSet;
+import com.intellij.lang.PsiParser;
+import com.intellij.lang.LightPsiParser;
 
 @SuppressWarnings({"SimplifiableIfStatement", "UnusedAssignment"})
 public class RobotsTxtParser implements PsiParser, LightPsiParser {
@@ -71,7 +71,7 @@ public class RobotsTxtParser implements PsiParser, LightPsiParser {
   }
 
   /* ********************************************************** */
-  // directive DELIMITER value
+  // directive DELIMITER value?
   public static boolean rule(PsiBuilder b, int l) {
     if (!recursion_guard_(b, l, "rule")) return false;
     if (!nextTokenIs(b, TEXT)) return false;
@@ -80,9 +80,16 @@ public class RobotsTxtParser implements PsiParser, LightPsiParser {
     r = directive(b, l + 1);
     p = r; // pin = 1
     r = r && report_error_(b, consumeToken(b, DELIMITER));
-    r = p && value(b, l + 1) && r;
+    r = p && rule_2(b, l + 1) && r;
     exit_section_(b, l, m, r, p, null);
     return r || p;
+  }
+
+  // value?
+  private static boolean rule_2(PsiBuilder b, int l) {
+    if (!recursion_guard_(b, l, "rule_2")) return false;
+    value(b, l + 1);
+    return true;
   }
 
   /* ********************************************************** */

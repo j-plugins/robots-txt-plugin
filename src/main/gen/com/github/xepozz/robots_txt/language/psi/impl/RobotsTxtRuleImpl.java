@@ -1,15 +1,15 @@
 // This is a generated file. Not intended for manual editing.
 package com.github.xepozz.robots_txt.language.psi.impl;
 
-import com.github.xepozz.robots_txt.language.psi.RobotsTxtDirective;
-import com.github.xepozz.robots_txt.language.psi.RobotsTxtRule;
-import com.github.xepozz.robots_txt.language.psi.RobotsTxtValue;
-import com.github.xepozz.robots_txt.language.psi.RobotsTxtVisitor;
-import com.intellij.extapi.psi.ASTWrapperPsiElement;
+import java.util.List;
+import org.jetbrains.annotations.*;
 import com.intellij.lang.ASTNode;
+import com.intellij.psi.PsiElement;
 import com.intellij.psi.PsiElementVisitor;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import com.intellij.psi.util.PsiTreeUtil;
+import static com.github.xepozz.robots_txt.language.psi.RobotsTxtTypes.*;
+import com.intellij.extapi.psi.ASTWrapperPsiElement;
+import com.github.xepozz.robots_txt.language.psi.*;
 
 public class RobotsTxtRuleImpl extends ASTWrapperPsiElement implements RobotsTxtRule {
 
