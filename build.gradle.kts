@@ -1,7 +1,6 @@
 import org.jetbrains.changelog.markdownToHTML
 import org.jetbrains.intellij.platform.gradle.TestFrameworkType
 import org.jetbrains.intellij.platform.gradle.utils.asPath
-import java.nio.charset.Charset
 import java.util.*
 import kotlin.io.path.absolutePathString
 
@@ -17,9 +16,12 @@ buildscript {
         classpath("com.guardsquare:proguard-gradle:7.7.0")
     }
 }
-val envProperties = Properties()
-envProperties.load(file(".env").reader(Charset.forName("UTF-8")))
 
+val envProperties by lazy {
+    Properties().apply {
+        load(file(".env").inputStream())
+    }
+}
 
 plugins {
     id("java") // Java support
