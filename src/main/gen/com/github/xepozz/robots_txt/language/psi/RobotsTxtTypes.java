@@ -1,12 +1,10 @@
 // This is a generated file. Not intended for manual editing.
 package com.github.xepozz.robots_txt.language.psi;
 
-import com.github.xepozz.robots_txt.language.psi.impl.RobotsTxtDirectiveImpl;
-import com.github.xepozz.robots_txt.language.psi.impl.RobotsTxtRuleImpl;
-import com.github.xepozz.robots_txt.language.psi.impl.RobotsTxtValueImpl;
-import com.intellij.lang.ASTNode;
-import com.intellij.psi.PsiElement;
 import com.intellij.psi.tree.IElementType;
+import com.intellij.psi.PsiElement;
+import com.intellij.lang.ASTNode;
+import com.github.xepozz.robots_txt.language.psi.impl.*;
 
 public interface RobotsTxtTypes {
 
@@ -27,7 +25,8 @@ public interface RobotsTxtTypes {
       }
       else if (type == RULE) {
         return new RobotsTxtRuleImpl(node);
-      } else if (type == VALUE) {
+      }
+      else if (type == VALUE) {
         return new RobotsTxtValueImpl(node);
       }
       throw new AssertionError("Unknown element type: " + type);
