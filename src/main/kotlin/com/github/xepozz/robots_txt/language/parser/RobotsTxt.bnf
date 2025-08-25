@@ -19,7 +19,7 @@ file ::= entry*
 
 private entry ::= rule | COMMENT | EOL
 
-rule ::= directive DELIMITER value
+rule ::= directive DELIMITER value?
 {
     pin=1
 }
