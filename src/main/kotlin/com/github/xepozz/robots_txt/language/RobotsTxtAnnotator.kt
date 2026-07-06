@@ -30,11 +30,11 @@ class RobotsTxtAnnotator : Annotator {
 
     companion object {
         val DIRECTIVE_HIGHLIGHT = TextAttributesKey.createTextAttributesKey(
-            "GITATTRIBUTES_PATTERN",
+            "ROBOTS_TXT_DIRECTIVE",
             DefaultLanguageHighlighterColors.KEYWORD,
         )
         private val VALUE_HIGHLIGHT = TextAttributesKey.createTextAttributesKey(
-            "GITATTRIBUTES_IDENTIFIER",
+            "ROBOTS_TXT_VALUE",
             DefaultLanguageHighlighterColors.STRING,
         )
     }

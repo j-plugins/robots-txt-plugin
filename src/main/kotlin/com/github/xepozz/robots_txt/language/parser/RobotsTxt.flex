@@ -22,13 +22,15 @@ WHITESPACE=[ \t]+
 %%
 
 <YYINITIAL> {
-    #[^\n]*       { return RobotsTxtTypes.COMMENT; }
+    #[^\r\n]*     { return RobotsTxtTypes.COMMENT; }
     ([\w-]+)      { return RobotsTxtTypes.TEXT; }
     ":"           { yybegin(VALUE); return RobotsTxtTypes.DELIMITER; }
 }
 <VALUE> {
-    [^\s][^\n]*   { return RobotsTxtTypes.TEXT; }
+    #[^\r\n]*     { return RobotsTxtTypes.COMMENT; }
+    [^\s#]([^\r\n#]*[^\s#])? { return RobotsTxtTypes.TEXT; }
 }
 
 {WHITESPACE}      { return TokenType.WHITE_SPACE; }
 {NEWLINE}         { yybegin(YYINITIAL); return RobotsTxtTypes.EOL; }
+[^]               { return TokenType.BAD_CHARACTER; }

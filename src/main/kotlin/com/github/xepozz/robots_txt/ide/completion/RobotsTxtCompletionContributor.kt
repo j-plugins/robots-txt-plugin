@@ -13,7 +13,7 @@ import com.intellij.patterns.PlatformPatterns
 import com.intellij.util.ProcessingContext
 
 class RobotsTxtCompletionContributor : CompletionContributor(), DumbAware {
-    val keywords = listOf<Pair<String, String>>(
+    private val keywords = listOf<Pair<String, String>>(
         "Sitemap" to "https://",
         "Allow" to "/",
         "Disallow" to "/",
@@ -40,17 +40,47 @@ class RobotsTxtCompletionContributor : CompletionContributor(), DumbAware {
                                     val document = context.document
                                     val insertionOffset = context.selectionEndOffset
 
-                                    // Insert ": /" after the selected keyword
                                     val delimiter = ": "
-                                    val postfix = delimiter + keyword.second
+                                    var delimiterStart = insertionOffset
+                                    val text = document.charsSequence
+                                    while (
+                                        delimiterStart < document.textLength &&
+                                        text[delimiterStart].isHorizontalWhitespace()
+                                    ) {
+                                        delimiterStart++
+                                    }
 
-                                    // todo: check if postfix already exist
-                                    val realPostfix = document.charsSequence.substring(insertionOffset)
-                                    if (!realPostfix.startsWith(delimiter)) {
+                                    if (delimiterStart >= document.textLength || text[delimiterStart].isLineBreak()) {
+                                        val postfix = delimiter + keyword.second
                                         document.insertString(insertionOffset, postfix)
                                         context.editor.caretModel.moveToOffset(insertionOffset + postfix.length)
-                                    } else {
+                                    } else if (text[delimiterStart] != ':') {
+                                        document.insertString(
+                                            insertionOffset,
+                                            if (delimiterStart == insertionOffset) delimiter else ":"
+                                        )
                                         context.editor.caretModel.moveToOffset(insertionOffset + delimiter.length)
+                                    } else {
+                                        var valueOffset = delimiterStart + 1
+                                        if (
+                                            valueOffset >= document.textLength ||
+                                            document.charsSequence[valueOffset].isLineBreak()
+                                        ) {
+                                            document.insertString(valueOffset, " " + keyword.second)
+                                            valueOffset += 1 + keyword.second.length
+                                        } else {
+                                            if (!document.charsSequence[valueOffset].isHorizontalWhitespace()) {
+                                                document.insertString(valueOffset, " ")
+                                            }
+                                            valueOffset++
+                                            while (
+                                                valueOffset < document.textLength &&
+                                                document.charsSequence[valueOffset].isHorizontalWhitespace()
+                                            ) {
+                                                valueOffset++
+                                            }
+                                        }
+                                        context.editor.caretModel.moveToOffset(valueOffset)
                                     }
                                 }
                         )
@@ -59,4 +89,8 @@ class RobotsTxtCompletionContributor : CompletionContributor(), DumbAware {
             }
         )
     }
+
+    private fun Char.isHorizontalWhitespace() = this == ' ' || this == '\t'
+
+    private fun Char.isLineBreak() = this == '\n' || this == '\r'
 }
